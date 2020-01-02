@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "mom": "source ./mom.sh"
+    "mom": "source ./mom.sh",
+    "json": "node -r esm ./src/toJson.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/Sistemium/sistemium-models/issues"
   },
-  "homepage": "https://github.com/Sistemium/sistemium-models#readme"
+  "homepage": "https://github.com/Sistemium/sistemium-models#readme",
+  "devDependencies": {
+    "esm": "^3.2.25"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "xml-js": "^1.6.11"
+  }
 }
