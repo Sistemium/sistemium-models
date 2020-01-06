@@ -2,8 +2,9 @@ import convert from 'xml-js';
 import lo from 'lodash';
 import fs from 'fs';
 
-convertModel('iSisDriver');
 convertModel('iSisSales');
+convertModel('iSisDriver');
+convertModel('iSisWarehouse');
 
 function convertModel(name) {
 
@@ -27,7 +28,7 @@ function convertModel(name) {
     },
   };
 
-  console.log(result.model.entity[0]);
+  console.log(name, 'entity count:', result.model.entity.length);
 
   fs.writeFileSync(`./dist/${name}.json`, JSON.stringify(result, null, 2));
 
