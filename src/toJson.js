@@ -5,6 +5,7 @@ import fs from 'fs';
 convertModel('iSisSales');
 convertModel('iSisDriver');
 convertModel('iSisWarehouse');
+convertModel('vfs');
 
 function convertModel(name) {
 

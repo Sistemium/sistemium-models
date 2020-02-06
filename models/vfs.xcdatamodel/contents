@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="100">
+    <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
+        <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="target" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="STMClientData" representedClassName="STMClientData" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="appVersion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="buildType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bundleIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bundleVersion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deviceName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="devicePlatform" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deviceToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deviceTokenError" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deviceUUID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="freeDiskSpace" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lastAuth" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="locationServiceStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notificationTypes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="systemVersion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tokenHash" optional="YES" attributeType="String" syncable="YES"/>
+        <userInfo>
+            <entry key="STORE" value="FMDB"/>
+        </userInfo>
+    </entity>
+    <entity name="STMClientEntity" representedClassName="STMClientEntity" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="eTag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastSent" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="UNIQUE" value="REPLACE"/>
+            </userInfo>
+        </attribute>
+        <userInfo>
+            <entry key="STORE" value="FMDB"/>
+        </userInfo>
+    </entity>
+    <entity name="STMContact" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contactMethod" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMContactMethod" inverseName="contacts" inverseEntity="STMContactMethod" syncable="YES"/>
+    </entity>
+    <entity name="STMContactMethod" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mask" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="validationPattern" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMContact" inverseName="contactMethod" inverseEntity="STMContact" syncable="YES"/>
+    </entity>
+    <entity name="STMDatum" representedClassName="STMDatum" syncable="YES">
+        <attribute name="deviceCts" optional="YES" attributeType="Date" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
+        <attribute name="deviceTs" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
+        <attribute name="isFantom" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lts" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="xid" optional="YES" attributeType="Binary" indexed="YES" syncable="YES"/>
+        <userInfo>
+            <entry key="STORE" value="NONE"/>
+        </userInfo>
+    </entity>
+    <entity name="STMEmployee" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="siteId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="serviceItems" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMServiceItem" inverseName="servingMaster" inverseEntity="STMServiceItem" syncable="YES"/>
+    </entity>
+    <entity name="STMEntity" representedClassName="STMEntity" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="eTag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isResolveFantoms" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isUploadable" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lifeTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lifeTimeDateField" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lifeTimePredicate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="maxPictureScale" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pictureLifeTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="roleName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="roleOwner" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workflow" optional="YES" attributeType="String" syncable="YES"/>
+        <userInfo>
+            <entry key="STORE" value="FMDB"/>
+        </userInfo>
+    </entity>
+    <entity name="STMFilterSystem" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="brandId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guaranteePeriod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceFrequency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="servicePrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="smallServicePrice" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="filterSystemType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMFilterSystemType" inverseName="filterSystems" inverseEntity="STMFilterSystemType" syncable="YES"/>
+        <relationship name="serviceItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceItem" inverseName="filterSystem" inverseEntity="STMServiceItem" syncable="YES"/>
+    </entity>
+    <entity name="STMFilterSystemType" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guaranteePeriod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceFrequency" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="filterSystems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMFilterSystem" inverseName="filterSystemType" inverseEntity="STMFilterSystem" syncable="YES"/>
+    </entity>
+    <entity name="STMLegalEntity" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="serviceContracts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceContract" inverseName="customerLegalEntity" inverseEntity="STMServiceContract" syncable="YES"/>
+    </entity>
+    <entity name="STMLocation" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="altitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="horizontalAccuracy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="verticalAccuracy" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="servicePoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServicePoint" inverseName="location" inverseEntity="STMServicePoint" syncable="YES"/>
+    </entity>
+    <entity name="STMLogMessage" representedClassName="STMLogMessage" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="STMPerson" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="avatarPictureId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="serviceContracts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceContract" inverseName="customerPerson" inverseEntity="STMServiceContract" syncable="YES"/>
+    </entity>
+    <entity name="STMRecordStatus" representedClassName="STMRecordStatus" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="isRead" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isRemoved" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isTemporary" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectXid" optional="YES" attributeType="Binary" indexed="YES" syncable="YES"/>
+    </entity>
+    <entity name="STMServiceContract" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="num" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="paymentMethod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="siteId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="customerLegalEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMLegalEntity" inverseName="serviceContracts" inverseEntity="STMLegalEntity" syncable="YES"/>
+        <relationship name="customerPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMPerson" inverseName="serviceContracts" inverseEntity="STMPerson" syncable="YES"/>
+        <relationship name="servicePoints" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMServicePoint" inverseName="currentServiceContract" inverseEntity="STMServicePoint" syncable="YES"/>
+    </entity>
+    <entity name="STMServiceItem" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="additionalServiceInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currentServiceContractId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guaranteePeriod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="installingDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="installingMasterId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="installingPrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastServiceDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastServiceType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nextServiceDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pausedFrom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plannedServiceDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plannedServiceType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceFrequency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="servicePrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="smallServicePrice" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="filterSystem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMFilterSystem" inverseName="serviceItems" inverseEntity="STMFilterSystem" syncable="YES"/>
+        <relationship name="serviceItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceItemService" inverseName="serviceItem" inverseEntity="STMServiceItemService" syncable="YES"/>
+        <relationship name="servicePoint" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMServicePoint" inverseName="serviceItems" inverseEntity="STMServicePoint" syncable="YES"/>
+        <relationship name="servingMaster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMEmployee" inverseName="serviceItems" inverseEntity="STMEmployee" syncable="YES"/>
+    </entity>
+    <entity name="STMServiceItemService" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nextServiceInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="servingMasterId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="serviceItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMServiceItem" inverseName="serviceItems" inverseEntity="STMServiceItem" syncable="YES"/>
+    </entity>
+    <entity name="STMServicePoint" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="apartment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contactIds" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="districtName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="doorCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gifts" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="house" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isPaused" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isReady" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localityId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="servingMasterId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="siteId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="streetId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="currentServiceContract" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMServiceContract" inverseName="servicePoints" inverseEntity="STMServiceContract" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMLocation" inverseName="servicePoints" inverseEntity="STMLocation" syncable="YES"/>
+        <relationship name="serviceItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceItem" inverseName="servicePoint" inverseEntity="STMServiceItem" syncable="YES"/>
+    </entity>
+    <entity name="STMSetting" representedClassName="STMSetting" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <userInfo>
+            <entry key="STORE" value="FMDB"/>
+        </userInfo>
+    </entity>
+    <entity name="STMSQLPatch" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="condition" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isProcessed" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="ord" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="patch" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="STMAbstract" positionX="-1341" positionY="-2106" width="128" height="105"/>
+        <element name="STMClientData" positionX="-936" positionY="-2286" width="128" height="270"/>
+        <element name="STMClientEntity" positionX="70" positionY="-2286" width="128" height="90"/>
+        <element name="STMContact" positionX="-1143" positionY="-2115" width="128" height="88"/>
+        <element name="STMContactMethod" positionX="-1134" positionY="-2106" width="128" height="133"/>
+        <element name="STMDatum" positionX="-1224" positionY="-2286" width="128" height="135"/>
+        <element name="STMEmployee" positionX="-1125" positionY="-2097" width="128" height="103"/>
+        <element name="STMEntity" positionX="232" positionY="-681" width="128" height="238"/>
+        <element name="STMFilterSystem" positionX="-1116" positionY="-2088" width="128" height="163"/>
+        <element name="STMFilterSystemType" positionX="-1107" positionY="-2079" width="128" height="118"/>
+        <element name="STMLogMessage" positionX="-792" positionY="-2286" width="128" height="75"/>
+        <element name="STMRecordStatus" positionX="-360" positionY="-2286" width="128" height="120"/>
+        <element name="STMSetting" positionX="-1080" positionY="-2286" width="128" height="90"/>
+        <element name="STMSQLPatch" positionX="-1368" positionY="-2133" width="128" height="105"/>
+        <element name="STMLegalEntity" positionX="-1170" positionY="-2142" width="128" height="88"/>
+        <element name="STMLocation" positionX="-1152" positionY="-2124" width="128" height="148"/>
+        <element name="STMPerson" positionX="-1143" positionY="-2115" width="128" height="148"/>
+        <element name="STMServiceContract" positionX="-1134" positionY="-2106" width="128" height="148"/>
+        <element name="STMServiceItem" positionX="-1125" positionY="-2097" width="128" height="358"/>
+        <element name="STMServiceItemService" positionX="-1116" positionY="-2088" width="128" height="148"/>
+        <element name="STMServicePoint" positionX="-1107" positionY="-2079" width="128" height="343"/>
+    </elements>
+</model>
