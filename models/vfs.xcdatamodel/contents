@@ -109,12 +109,12 @@
         <relationship name="serviceContracts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceContract" inverseName="customerLegalEntity" inverseEntity="STMServiceContract" syncable="YES"/>
     </entity>
     <entity name="STMLocation" parentEntity="STMAbstract" syncable="YES">
-        <attribute name="altitude" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="horizontalAccuracy" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="altitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="horizontalAccuracy" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="verticalAccuracy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="verticalAccuracy" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="servicePoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServicePoint" inverseName="location" inverseEntity="STMServicePoint" syncable="YES"/>
     </entity>
     <entity name="STMLogMessage" representedClassName="STMLogMessage" parentEntity="STMAbstract" syncable="YES">
@@ -187,8 +187,8 @@
         <attribute name="gifts" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="house" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isPaused" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isReady" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isPaused" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isReady" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="localityId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
@@ -225,16 +225,16 @@
         <element name="STMEntity" positionX="232" positionY="-681" width="128" height="238"/>
         <element name="STMFilterSystem" positionX="-1116" positionY="-2088" width="128" height="163"/>
         <element name="STMFilterSystemType" positionX="-1107" positionY="-2079" width="128" height="118"/>
-        <element name="STMLogMessage" positionX="-792" positionY="-2286" width="128" height="75"/>
-        <element name="STMRecordStatus" positionX="-360" positionY="-2286" width="128" height="120"/>
-        <element name="STMSetting" positionX="-1080" positionY="-2286" width="128" height="90"/>
-        <element name="STMSQLPatch" positionX="-1368" positionY="-2133" width="128" height="105"/>
         <element name="STMLegalEntity" positionX="-1170" positionY="-2142" width="128" height="88"/>
         <element name="STMLocation" positionX="-1152" positionY="-2124" width="128" height="148"/>
+        <element name="STMLogMessage" positionX="-792" positionY="-2286" width="128" height="75"/>
         <element name="STMPerson" positionX="-1143" positionY="-2115" width="128" height="148"/>
+        <element name="STMRecordStatus" positionX="-360" positionY="-2286" width="128" height="120"/>
         <element name="STMServiceContract" positionX="-1134" positionY="-2106" width="128" height="148"/>
         <element name="STMServiceItem" positionX="-1125" positionY="-2097" width="128" height="358"/>
         <element name="STMServiceItemService" positionX="-1116" positionY="-2088" width="128" height="148"/>
         <element name="STMServicePoint" positionX="-1107" positionY="-2079" width="128" height="343"/>
+        <element name="STMSetting" positionX="-1080" positionY="-2286" width="128" height="90"/>
+        <element name="STMSQLPatch" positionX="-1368" positionY="-2133" width="128" height="105"/>
     </elements>
 </model>
