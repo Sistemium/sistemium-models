@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18G2022" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="392">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18G3020" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="393">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -362,6 +362,11 @@
         <relationship name="pickingOrderPositionPickeds" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMPickingOrderPositionPicked" inverseName="warehouseBox" inverseEntity="STMPickingOrderPositionPicked" syncable="YES"/>
         <relationship name="warehouseArticle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMWarehouseArticle" inverseName="warehouseBoxes" inverseEntity="STMWarehouseArticle" syncable="YES"/>
     </entity>
+    <entity name="STMWarehouseBoxConfirmed" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="barcode" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="warehouseBoxId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="warehouseItemIds" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
     <entity name="STMWarehouseBoxOperation" parentEntity="STMAbstract" syncable="YES">
         <attribute name="paletteFromId" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="paletteToId" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -386,6 +391,12 @@
         <attribute name="barcode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="processing" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="STMWarehousePaletteConfirmed" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="barcode" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="warehouseBoxIds" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="warehouseItemIds" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="warehousePaletteId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="STMWarehouseStock" parentEntity="STMAbstract" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
@@ -451,5 +462,7 @@
         <element name="STMWarehousePalette" positionX="-1161" positionY="-2115" width="128" height="90"/>
         <element name="STMWarehouseStock" positionX="-1152" positionY="-2106" width="128" height="105"/>
         <element name="STMWorkflow" positionX="45" positionY="-675" width="128" height="90"/>
+        <element name="STMWarehouseBoxConfirmed" positionX="-1179" positionY="-2133" width="128" height="90"/>
+        <element name="STMWarehousePaletteConfirmed" positionX="-1170" positionY="-2124" width="128" height="105"/>
     </elements>
 </model>
