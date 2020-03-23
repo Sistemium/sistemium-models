@@ -363,7 +363,11 @@
         <relationship name="warehouseArticle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMWarehouseArticle" inverseName="warehouseBoxes" inverseEntity="STMWarehouseArticle" syncable="YES"/>
     </entity>
     <entity name="STMWarehouseBoxConfirmed" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="articleId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="barcode" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="dateProduction" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="stamps" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="stockBatchBarcode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="warehouseBoxId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="warehouseItemIds" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
@@ -462,7 +466,7 @@
         <element name="STMWarehousePalette" positionX="-1161" positionY="-2115" width="128" height="90"/>
         <element name="STMWarehouseStock" positionX="-1152" positionY="-2106" width="128" height="105"/>
         <element name="STMWorkflow" positionX="45" positionY="-675" width="128" height="90"/>
-        <element name="STMWarehouseBoxConfirmed" positionX="-1179" positionY="-2133" width="128" height="90"/>
+        <element name="STMWarehouseBoxConfirmed" positionX="-1179" positionY="-2133" width="128" height="150"/>
         <element name="STMWarehousePaletteConfirmed" positionX="-1170" positionY="-2124" width="128" height="105"/>
     </elements>
 </model>
