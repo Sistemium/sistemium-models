@@ -362,8 +362,10 @@
         <relationship name="visits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMVisit" inverseName="outlet" inverseEntity="STMVisit" syncable="YES"/>
     </entity>
     <entity name="STMOutletArticle" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="discount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="discountDoc" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="article" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMArticle" inverseName="outletArticles" inverseEntity="STMArticle" syncable="YES"/>
         <relationship name="outlet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMOutlet" inverseName="outletArticles" inverseEntity="STMOutlet" syncable="YES"/>
     </entity>
@@ -716,6 +718,7 @@
         <element name="STMNewsMessage" positionX="-1368" positionY="-2133" width="128" height="210"/>
         <element name="STMNewsMessagePicture" positionX="-1368" positionY="-2133" width="128" height="60"/>
         <element name="STMOutlet" positionX="-954" positionY="-1620" width="128" height="375"/>
+        <element name="STMOutletArticle" positionX="-1368" positionY="-2133" width="128" height="135"/>
         <element name="STMOutletPhoto" positionX="-513" positionY="-1278" width="128" height="73"/>
         <element name="STMOutletRestriction" positionX="-1332" positionY="-2097" width="128" height="75"/>
         <element name="STMOutletSalesmanContract" positionX="-1152" positionY="-1287" width="128" height="120"/>
@@ -758,6 +761,5 @@
         <element name="STMVisitQuestionGroup" positionX="-171" positionY="-1458" width="128" height="90"/>
         <element name="STMVisitQuestionSet" positionX="7" positionY="-1566" width="128" height="105"/>
         <element name="STMWorkflow" positionX="45" positionY="-675" width="128" height="105"/>
-        <element name="STMOutletArticle" positionX="-1368" positionY="-2133" width="128" height="105"/>
     </elements>
 </model>
