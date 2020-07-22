@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18G4032" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="373">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18G5033" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="374">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -32,6 +32,7 @@
         <relationship name="articleGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMArticleGroup" inverseName="articles" inverseEntity="STMArticleGroup" syncable="YES"/>
         <relationship name="avatarPicture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMArticlePicture" inverseName="avatarArticles" inverseEntity="STMArticlePicture" syncable="YES"/>
         <relationship name="contractArticles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMContractArticle" inverseName="article" inverseEntity="STMContractArticle" syncable="YES"/>
+        <relationship name="outletArticles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMOutletArticle" inverseName="article" inverseEntity="STMOutletArticle" syncable="YES"/>
         <relationship name="partnerArticles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMPartnerArticle" inverseName="article" inverseEntity="STMPartnerArticle" syncable="YES"/>
         <relationship name="pictures" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMArticlePictureArticle" inverseName="article" inverseEntity="STMArticlePictureArticle" syncable="YES"/>
         <relationship name="priceGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMPriceGroup" inverseName="articles" inverseEntity="STMPriceGroup" syncable="YES"/>
@@ -348,6 +349,7 @@
         <relationship name="cashings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMCashing" inverseName="outlet" inverseEntity="STMCashing" syncable="YES"/>
         <relationship name="debts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMDebt" inverseName="outlet" inverseEntity="STMDebt" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMLocation" inverseName="outlets" inverseEntity="STMLocation" syncable="YES"/>
+        <relationship name="outletArticles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMOutletArticle" inverseName="outlet" inverseEntity="STMOutletArticle" syncable="YES"/>
         <relationship name="outletRestrictions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMOutletRestriction" inverseName="outlet" inverseEntity="STMOutletRestriction" syncable="YES"/>
         <relationship name="outletSalesmanContracts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMOutletSalesmanContract" inverseName="outlet" inverseEntity="STMOutletSalesmanContract" syncable="YES"/>
         <relationship name="partner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMPartner" inverseName="outlets" inverseEntity="STMPartner" syncable="YES"/>
@@ -358,6 +360,12 @@
         <relationship name="scheduledEvents" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMScheduledEvent" inverseName="outlet" inverseEntity="STMScheduledEvent" syncable="YES"/>
         <relationship name="shipments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMShipment" inverseName="outlet" inverseEntity="STMShipment" syncable="YES"/>
         <relationship name="visits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMVisit" inverseName="outlet" inverseEntity="STMVisit" syncable="YES"/>
+    </entity>
+    <entity name="STMOutletArticle" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="discount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="discountDoc" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="article" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMArticle" inverseName="outletArticles" inverseEntity="STMArticle" syncable="YES"/>
+        <relationship name="outlet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMOutlet" inverseName="outletArticles" inverseEntity="STMOutlet" syncable="YES"/>
     </entity>
     <entity name="STMOutletPhoto" representedClassName="STMOutletPhoto" parentEntity="STMCorePhoto" syncable="YES">
         <relationship name="avatarOutlets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMOutlet" inverseName="avatarPicture" inverseEntity="STMOutlet" syncable="YES"/>
@@ -671,7 +679,7 @@
     <elements>
         <element name="STMAbstract" positionX="-1341" positionY="-2106" width="128" height="105"/>
         <element name="STMAccount" positionX="-1323" positionY="-2088" width="128" height="165"/>
-        <element name="STMArticle" positionX="-1163" positionY="-619" width="128" height="405"/>
+        <element name="STMArticle" positionX="-1163" positionY="-619" width="128" height="420"/>
         <element name="STMArticleBarCode" positionX="-1368" positionY="-2133" width="128" height="75"/>
         <element name="STMArticleGroup" positionX="-1386" positionY="-918" width="128" height="150"/>
         <element name="STMArticlePicture" positionX="-38" positionY="-792" width="128" height="73"/>
@@ -687,6 +695,7 @@
         <element name="STMClientData" positionX="-936" positionY="-2286" width="128" height="270"/>
         <element name="STMClientEntity" positionX="70" positionY="-2286" width="128" height="90"/>
         <element name="STMCommentary" positionX="-1359" positionY="-2124" width="128" height="105"/>
+        <element name="STMConfiguration" positionX="-1368" positionY="-2133" width="128" height="105"/>
         <element name="STMContract" positionX="-1388" positionY="-1261" width="128" height="210"/>
         <element name="STMContractArticle" positionX="-1350" positionY="-2115" width="128" height="90"/>
         <element name="STMContractPriceGroup" positionX="-1359" positionY="-2124" width="128" height="90"/>
@@ -706,7 +715,7 @@
         <element name="STMMessagePicture" positionX="72" positionY="-999" width="128" height="73"/>
         <element name="STMNewsMessage" positionX="-1368" positionY="-2133" width="128" height="210"/>
         <element name="STMNewsMessagePicture" positionX="-1368" positionY="-2133" width="128" height="60"/>
-        <element name="STMOutlet" positionX="-954" positionY="-1620" width="128" height="360"/>
+        <element name="STMOutlet" positionX="-954" positionY="-1620" width="128" height="375"/>
         <element name="STMOutletPhoto" positionX="-513" positionY="-1278" width="128" height="73"/>
         <element name="STMOutletRestriction" positionX="-1332" positionY="-2097" width="128" height="75"/>
         <element name="STMOutletSalesmanContract" positionX="-1152" positionY="-1287" width="128" height="120"/>
@@ -749,6 +758,6 @@
         <element name="STMVisitQuestionGroup" positionX="-171" positionY="-1458" width="128" height="90"/>
         <element name="STMVisitQuestionSet" positionX="7" positionY="-1566" width="128" height="105"/>
         <element name="STMWorkflow" positionX="45" positionY="-675" width="128" height="105"/>
-        <element name="STMConfiguration" positionX="-1368" positionY="-2133" width="128" height="105"/>
+        <element name="STMOutletArticle" positionX="-1368" positionY="-2133" width="128" height="105"/>
     </elements>
 </model>
