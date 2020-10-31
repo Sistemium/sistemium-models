@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18G3020" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="393">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="393">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -19,6 +19,7 @@
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="extraLabel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="factor" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="gniCode" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="packageRel" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="pieceVolume" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
@@ -416,7 +417,7 @@
     <elements>
         <element name="STMAbstract" positionX="-1341" positionY="-2106" width="128" height="105"/>
         <element name="STMAccount" positionX="-1323" positionY="-2088" width="128" height="120"/>
-        <element name="STMArticle" positionX="-1163" positionY="-619" width="128" height="405"/>
+        <element name="STMArticle" positionX="-1163" positionY="-619" width="128" height="418"/>
         <element name="STMArticleBarCode" positionX="-1179" positionY="-2133" width="128" height="75"/>
         <element name="STMArticleDoc" positionX="-1134" positionY="-2088" width="128" height="135"/>
         <element name="STMArticleGroup" positionX="-1386" positionY="-918" width="128" height="135"/>
@@ -460,13 +461,13 @@
         <element name="STMWarehouse" positionX="-1179" positionY="-2133" width="128" height="105"/>
         <element name="STMWarehouseArticle" positionX="-1143" positionY="-2097" width="128" height="195"/>
         <element name="STMWarehouseBox" positionX="-1179" positionY="-2133" width="128" height="135"/>
+        <element name="STMWarehouseBoxConfirmed" positionX="-1179" positionY="-2133" width="128" height="150"/>
         <element name="STMWarehouseBoxOperation" positionX="-1152" positionY="-2106" width="128" height="105"/>
         <element name="STMWarehouseItem" positionX="-1170" positionY="-2124" width="128" height="135"/>
         <element name="STMWarehouseItemOperation" positionX="-1170" positionY="-2124" width="128" height="105"/>
         <element name="STMWarehousePalette" positionX="-1161" positionY="-2115" width="128" height="90"/>
+        <element name="STMWarehousePaletteConfirmed" positionX="-1170" positionY="-2124" width="128" height="105"/>
         <element name="STMWarehouseStock" positionX="-1152" positionY="-2106" width="128" height="105"/>
         <element name="STMWorkflow" positionX="45" positionY="-675" width="128" height="90"/>
-        <element name="STMWarehouseBoxConfirmed" positionX="-1179" positionY="-2133" width="128" height="150"/>
-        <element name="STMWarehousePaletteConfirmed" positionX="-1170" positionY="-2124" width="128" height="105"/>
     </elements>
 </model>
