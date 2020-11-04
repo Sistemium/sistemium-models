@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18G5033" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="374">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="377">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -15,6 +15,23 @@
         <relationship name="cashings" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="STMCashing" inverseName="creator" inverseEntity="STMCashing" syncable="YES"/>
         <relationship name="commentarys" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="STMCommentary" inverseName="author" inverseEntity="STMCommentary" syncable="YES"/>
         <relationship name="uncashings" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="STMUncashing" inverseName="creator" inverseEntity="STMUncashing" syncable="YES"/>
+    </entity>
+    <entity name="STMAction" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="discountCash" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="discountComp" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="discountMatrix" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="discountOwn" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="layout" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="needPhoto" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="oneTime" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="options" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="priorityId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="processing" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ranges" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="repeatable" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="required" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="campaign" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMCampaign" inverseName="actions" inverseEntity="STMCampaign" syncable="YES"/>
     </entity>
     <entity name="STMArticle" representedClassName="STMArticle" parentEntity="STMAbstract" syncable="YES">
         <attribute name="barcode" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
@@ -83,10 +100,16 @@
         <attribute name="dateB" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateE" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="discount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="groupCode" optional="YES" syncable="YES"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="needPhoto" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="oneTime" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="repeatable" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="restrictions" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="territory" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="variants" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="actions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMAction" inverseName="campaign" inverseEntity="STMAction" syncable="YES"/>
         <relationship name="campaignGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMCampaignGroup" inverseName="campaigns" inverseEntity="STMCampaignGroup" syncable="YES"/>
         <relationship name="photoReports" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMPhotoReport" inverseName="campaign" inverseEntity="STMPhotoReport" syncable="YES"/>
         <relationship name="pictures" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMCampaignPicture" inverseName="campaign" inverseEntity="STMCampaignPicture" syncable="YES"/>
@@ -99,6 +122,11 @@
     </entity>
     <entity name="STMCampaignPicture" parentEntity="STMCorePicture" syncable="YES">
         <relationship name="campaign" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMCampaign" inverseName="pictures" inverseEntity="STMCampaign" syncable="YES"/>
+    </entity>
+    <entity name="STMCampaignsPriority" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="cls" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ord" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <entity name="STMCashing" parentEntity="STMAbstract" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
@@ -681,6 +709,7 @@
     <elements>
         <element name="STMAbstract" positionX="-1341" positionY="-2106" width="128" height="105"/>
         <element name="STMAccount" positionX="-1323" positionY="-2088" width="128" height="165"/>
+        <element name="STMAction" positionX="-1368" positionY="-2133" width="128" height="268"/>
         <element name="STMArticle" positionX="-1163" positionY="-619" width="128" height="420"/>
         <element name="STMArticleBarCode" positionX="-1368" positionY="-2133" width="128" height="75"/>
         <element name="STMArticleGroup" positionX="-1386" positionY="-918" width="128" height="150"/>
@@ -689,9 +718,10 @@
         <element name="STMBarCodeScan" positionX="-72" positionY="-2286" width="128" height="90"/>
         <element name="STMBarCodeType" positionX="-218" positionY="-2286" width="128" height="105"/>
         <element name="STMBatteryStatus" positionX="-648" positionY="-2286" width="128" height="75"/>
-        <element name="STMCampaign" positionX="-1206" positionY="-2016" width="128" height="195"/>
+        <element name="STMCampaign" positionX="-1206" positionY="-2016" width="128" height="283"/>
         <element name="STMCampaignGroup" positionX="-1215" positionY="-2025" width="128" height="105"/>
         <element name="STMCampaignPicture" positionX="-1197" positionY="-2007" width="128" height="60"/>
+        <element name="STMCampaignsPriority" positionX="-1359" positionY="-2124" width="128" height="88"/>
         <element name="STMCashing" positionX="-1368" positionY="-2133" width="128" height="165"/>
         <element name="STMCatalogueAlert" positionX="-1314" positionY="-2079" width="128" height="150"/>
         <element name="STMClientData" positionX="-936" positionY="-2286" width="128" height="270"/>
