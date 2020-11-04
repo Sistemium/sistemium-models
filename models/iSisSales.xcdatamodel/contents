@@ -100,11 +100,12 @@
         <attribute name="dateB" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateE" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="discount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="groupCode" optional="YES" syncable="YES"/>
+        <attribute name="groupCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="needPhoto" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="oneTime" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="priorityId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="repeatable" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="restrictions" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="territory" optional="YES" attributeType="String" syncable="YES"/>
@@ -718,7 +719,7 @@
         <element name="STMBarCodeScan" positionX="-72" positionY="-2286" width="128" height="90"/>
         <element name="STMBarCodeType" positionX="-218" positionY="-2286" width="128" height="105"/>
         <element name="STMBatteryStatus" positionX="-648" positionY="-2286" width="128" height="75"/>
-        <element name="STMCampaign" positionX="-1206" positionY="-2016" width="128" height="283"/>
+        <element name="STMCampaign" positionX="-1206" positionY="-2016" width="128" height="298"/>
         <element name="STMCampaignGroup" positionX="-1215" positionY="-2025" width="128" height="105"/>
         <element name="STMCampaignPicture" positionX="-1197" positionY="-2007" width="128" height="60"/>
         <element name="STMCampaignsPriority" positionX="-1359" positionY="-2124" width="128" height="88"/>
