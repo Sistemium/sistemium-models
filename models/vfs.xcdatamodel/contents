@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="101">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="102">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -107,6 +107,7 @@
     <entity name="STMLegalEntity" parentEntity="STMAbstract" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notificationAgreement" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="serviceContracts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceContract" inverseName="customerLegalEntity" inverseEntity="STMServiceContract" syncable="YES"/>
     </entity>
     <entity name="STMLocation" parentEntity="STMAbstract" syncable="YES">
@@ -128,6 +129,7 @@
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notificationAgreement" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="serviceContracts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceContract" inverseName="customerPerson" inverseEntity="STMServiceContract" syncable="YES"/>
     </entity>
