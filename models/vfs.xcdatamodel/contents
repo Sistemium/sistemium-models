@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="102">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="104">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -89,19 +89,20 @@
     </entity>
     <entity name="STMFilterSystem" parentEntity="STMAbstract" syncable="YES">
         <attribute name="brandId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="guaranteePeriod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guaranteePeriod" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="serviceFrequency" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="servicePrice" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="smallServicePrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceFrequency" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="servicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
+        <attribute name="smallServicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
         <relationship name="filterSystemType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMFilterSystemType" inverseName="filterSystems" inverseEntity="STMFilterSystemType" syncable="YES"/>
         <relationship name="serviceItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceItem" inverseName="filterSystem" inverseEntity="STMServiceItem" syncable="YES"/>
     </entity>
     <entity name="STMFilterSystemType" parentEntity="STMAbstract" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="guaranteePeriod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guaranteePeriod" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="serviceFrequency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceFrequency" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="servicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
         <relationship name="filterSystems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMFilterSystem" inverseName="filterSystemType" inverseEntity="STMFilterSystem" syncable="YES"/>
     </entity>
     <entity name="STMLegalEntity" parentEntity="STMAbstract" syncable="YES">
@@ -152,21 +153,21 @@
     <entity name="STMServiceItem" parentEntity="STMAbstract" syncable="YES">
         <attribute name="additionalServiceInfo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="currentServiceContractId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="guaranteePeriod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guaranteePeriod" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="installingDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="installingMasterId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="installingPrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="installingPrice" optional="YES" attributeType="Decimal" syncable="YES"/>
         <attribute name="lastServiceDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastServiceType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nextServiceDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pausedFrom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="plannedServiceDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="plannedServiceType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="serviceFrequency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceFrequency" optional="YES" attributeType="Integer 64" syncable="YES"/>
         <attribute name="serviceInfo" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="servicePrice" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="smallServicePrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="servicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
+        <attribute name="smallServicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
         <relationship name="filterSystem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMFilterSystem" inverseName="serviceItems" inverseEntity="STMFilterSystem" syncable="YES"/>
         <relationship name="serviceItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceItemService" inverseName="serviceItem" inverseEntity="STMServiceItemService" syncable="YES"/>
         <relationship name="servicePoint" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMServicePoint" inverseName="serviceItems" inverseEntity="STMServicePoint" syncable="YES"/>
