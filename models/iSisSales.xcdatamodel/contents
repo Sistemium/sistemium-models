@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H524" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="380">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H524" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="381">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -31,6 +31,7 @@
         <attribute name="ranges" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="repeatable" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="required" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="territory" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="campaign" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMCampaign" inverseName="actions" inverseEntity="STMCampaign" syncable="YES"/>
     </entity>
     <entity name="STMArticle" representedClassName="STMArticle" parentEntity="STMAbstract" syncable="YES">
@@ -104,6 +105,7 @@
         <relationship name="articles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMArticle" inverseName="brand" inverseEntity="STMArticle" syncable="YES"/>
     </entity>
     <entity name="STMCampaign" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="comments" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="dateB" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateE" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="discount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
