@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="382">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="383">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -689,6 +689,14 @@
     <entity name="STMUserPartner" parentEntity="STMAbstract" syncable="YES">
         <attribute name="partnerId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="STMUserReport" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="dateB" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateE" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="files" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userAuthId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="versionTs" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
     <entity name="STMVisit" representedClassName="STMVisit" parentEntity="STMAbstract" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="prices" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -816,6 +824,9 @@
         <element name="STMUncashingPicture" positionX="-1341" positionY="-2106" width="128" height="60"/>
         <element name="STMUncashingPlace" positionX="-1332" positionY="-2097" width="128" height="90"/>
         <element name="STMUserNewsMessage" positionX="-1359" positionY="-2124" width="128" height="105"/>
+        <element name="STMUserOutlet" positionX="-1368" positionY="-2124" width="128" height="44"/>
+        <element name="STMUserPartner" positionX="-1359" positionY="-2115" width="128" height="44"/>
+        <element name="STMUserReport" positionX="-1368" positionY="-2124" width="128" height="119"/>
         <element name="STMVisit" positionX="-729" positionY="-1756" width="128" height="180"/>
         <element name="STMVisitAnswer" positionX="-540" positionY="-1746" width="128" height="90"/>
         <element name="STMVisitPhoto" positionX="-396" positionY="-1359" width="128" height="58"/>
@@ -824,7 +835,5 @@
         <element name="STMVisitQuestionGroup" positionX="-171" positionY="-1458" width="128" height="90"/>
         <element name="STMVisitQuestionSet" positionX="7" positionY="-1566" width="128" height="105"/>
         <element name="STMWorkflow" positionX="45" positionY="-675" width="128" height="105"/>
-        <element name="STMUserOutlet" positionX="-1368" positionY="-2124" width="128" height="44"/>
-        <element name="STMUserPartner" positionX="-1359" positionY="-2115" width="128" height="44"/>
     </elements>
 </model>
