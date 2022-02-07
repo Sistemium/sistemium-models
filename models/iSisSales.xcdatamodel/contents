@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="383">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G224" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="384">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -141,6 +141,7 @@
     <entity name="STMCashing" parentEntity="STMAbstract" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="isProcessed" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isRequest" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="ndoc" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="summ" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMAccount" inverseName="cashings" inverseEntity="STMAccount" syncable="YES"/>
@@ -761,7 +762,7 @@
         <element name="STMCampaignGroup" positionX="-1215" positionY="-2025" width="128" height="105"/>
         <element name="STMCampaignPicture" positionX="-1197" positionY="-2007" width="128" height="60"/>
         <element name="STMCampaignsPriority" positionX="-1359" positionY="-2124" width="128" height="88"/>
-        <element name="STMCashing" positionX="-1368" positionY="-2133" width="128" height="165"/>
+        <element name="STMCashing" positionX="-1368" positionY="-2133" width="128" height="164"/>
         <element name="STMCatalogueAlert" positionX="-1314" positionY="-2079" width="128" height="150"/>
         <element name="STMClientData" positionX="-936" positionY="-2286" width="128" height="270"/>
         <element name="STMClientEntity" positionX="70" positionY="-2286" width="128" height="90"/>
