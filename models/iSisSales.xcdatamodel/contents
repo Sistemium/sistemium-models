@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G224" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="384">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="385">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -121,6 +121,7 @@
         <attribute name="variants" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="actions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMAction" inverseName="campaign" inverseEntity="STMAction" syncable="YES"/>
         <relationship name="campaignGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMCampaignGroup" inverseName="campaigns" inverseEntity="STMCampaignGroup" syncable="YES"/>
+        <relationship name="legalEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMLegalEntity" inverseName="campaigns" inverseEntity="STMLegalEntity" syncable="YES"/>
         <relationship name="photoReports" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMPhotoReport" inverseName="campaign" inverseEntity="STMPhotoReport" syncable="YES"/>
         <relationship name="pictures" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMCampaignPicture" inverseName="campaign" inverseEntity="STMCampaignPicture" syncable="YES"/>
     </entity>
@@ -331,7 +332,9 @@
     </entity>
     <entity name="STMLegalEntity" parentEntity="STMAbstract" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="campaigns" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="STMCampaign" inverseName="legalEntity" inverseEntity="STMCampaign" syncable="YES"/>
         <relationship name="contracts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMContract" inverseName="legalEntity" inverseEntity="STMContract" syncable="YES"/>
+        <relationship name="salesmans" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="STMSalesman" inverseName="employerLegalEntity" inverseEntity="STMSalesman" syncable="YES"/>
     </entity>
     <entity name="STMLegalForm" representedClassName="STMLegalForm" parentEntity="STMAbstract" syncable="YES">
         <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
@@ -567,6 +570,7 @@
         <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="responsibility" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="debts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMDebt" inverseName="salesman" inverseEntity="STMDebt" syncable="YES"/>
+        <relationship name="employerLegalEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMLegalEntity" inverseName="salesmans" inverseEntity="STMLegalEntity" syncable="YES"/>
         <relationship name="outletSalesmanContracts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMOutletSalesmanContract" inverseName="salesman" inverseEntity="STMOutletSalesmanContract" syncable="YES"/>
         <relationship name="outletStatss" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMOutletStats" inverseName="salesman" inverseEntity="STMOutletStats" syncable="YES"/>
         <relationship name="photoReports" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMPhotoReport" inverseName="salesman" inverseEntity="STMPhotoReport" syncable="YES"/>
@@ -748,7 +752,7 @@
     <elements>
         <element name="STMAbstract" positionX="-1341" positionY="-2106" width="128" height="105"/>
         <element name="STMAccount" positionX="-1323" positionY="-2088" width="128" height="165"/>
-        <element name="STMAction" positionX="-1368" positionY="-2133" width="128" height="268"/>
+        <element name="STMAction" positionX="-1368" positionY="-2133" width="128" height="269"/>
         <element name="STMArticle" positionX="-1163" positionY="-619" width="128" height="448"/>
         <element name="STMArticleBarCode" positionX="-1368" positionY="-2133" width="128" height="75"/>
         <element name="STMArticleGroup" positionX="-1386" positionY="-918" width="128" height="150"/>
@@ -758,7 +762,7 @@
         <element name="STMBarCodeType" positionX="-218" positionY="-2286" width="128" height="105"/>
         <element name="STMBatteryStatus" positionX="-648" positionY="-2286" width="128" height="75"/>
         <element name="STMBrand" positionX="-1359" positionY="-2124" width="128" height="73"/>
-        <element name="STMCampaign" positionX="-1206" positionY="-2016" width="128" height="298"/>
+        <element name="STMCampaign" positionX="-1206" positionY="-2016" width="128" height="314"/>
         <element name="STMCampaignGroup" positionX="-1215" positionY="-2025" width="128" height="105"/>
         <element name="STMCampaignPicture" positionX="-1197" positionY="-2007" width="128" height="60"/>
         <element name="STMCampaignsPriority" positionX="-1359" positionY="-2124" width="128" height="88"/>
@@ -780,7 +784,7 @@
         <element name="STMDriver" positionX="-1323" positionY="-2088" width="128" height="120"/>
         <element name="STMEntity" positionX="232" positionY="-681" width="128" height="255"/>
         <element name="STMJson" positionX="-504" positionY="-2286" width="128" height="90"/>
-        <element name="STMLegalEntity" positionX="-1368" positionY="-2133" width="128" height="75"/>
+        <element name="STMLegalEntity" positionX="-1368" positionY="-2133" width="128" height="89"/>
         <element name="STMLegalForm" positionX="-1368" positionY="-1546" width="128" height="105"/>
         <element name="STMLocation" positionX="-720" positionY="-1135" width="128" height="105"/>
         <element name="STMLogMessage" positionX="-792" positionY="-2286" width="128" height="75"/>
@@ -809,7 +813,7 @@
         <element name="STMSaleOrder" positionX="-945" positionY="-901" width="128" height="360"/>
         <element name="STMSaleOrderDiscount" positionX="-1368" positionY="-2133" width="128" height="150"/>
         <element name="STMSaleOrderPosition" positionX="-1134" positionY="-999" width="128" height="240"/>
-        <element name="STMSalesman" positionX="-974" positionY="-1242" width="128" height="223"/>
+        <element name="STMSalesman" positionX="-974" positionY="-1242" width="128" height="224"/>
         <element name="STMSalesmanOutletRestriction" positionX="-1323" positionY="-2088" width="128" height="90"/>
         <element name="STMSchedule" positionX="-504" positionY="-810" width="128" height="105"/>
         <element name="STMScheduledEvent" positionX="-686" positionY="-747" width="128" height="150"/>
