@@ -1,7 +1,5 @@
 sistemium-models.xcworkspace/xcuserdata
 dist
 node_modules
-.idea/deployment.xml
-.idea/dictionaries
-.DS_Store
 .idea
+.DS_Store
