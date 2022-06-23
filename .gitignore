@@ -3,5 +3,5 @@ dist
 node_modules
 .idea/deployment.xml
 .idea/dictionaries
-models/.DS_Store
+.DS_Store
 .idea
