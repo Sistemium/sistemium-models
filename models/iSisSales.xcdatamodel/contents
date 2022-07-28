@@ -820,6 +820,7 @@
         <element name="STMSaleOrderPosition" positionX="-1134" positionY="-999" width="128" height="240"/>
         <element name="STMSalesman" positionX="-974" positionY="-1242" width="128" height="224"/>
         <element name="STMSalesmanOutletRestriction" positionX="-1323" positionY="-2088" width="128" height="90"/>
+        <element name="STMSalesTeam" positionX="-1368" positionY="-2124" width="128" height="74"/>
         <element name="STMSchedule" positionX="-504" positionY="-810" width="128" height="105"/>
         <element name="STMScheduledEvent" positionX="-686" positionY="-747" width="128" height="150"/>
         <element name="STMSchedulePurpose" positionX="-342" positionY="-765" width="128" height="105"/>
@@ -845,6 +846,5 @@
         <element name="STMVisitQuestionGroup" positionX="-171" positionY="-1458" width="128" height="90"/>
         <element name="STMVisitQuestionSet" positionX="7" positionY="-1566" width="128" height="105"/>
         <element name="STMWorkflow" positionX="45" positionY="-675" width="128" height="105"/>
-        <element name="STMSalesTeam" positionX="-1368" positionY="-2124" width="128" height="74"/>
     </elements>
 </model>
