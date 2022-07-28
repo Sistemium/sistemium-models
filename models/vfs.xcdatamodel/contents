@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="105">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="107">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="target" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="STMBarCodeScan" representedClassName="STMBarCodeScan" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="destinationEntity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="destinationXid" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="STMBarCodeType" representedClassName="STMBarCodeType" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="mask" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="symbology" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="STMClientData" representedClassName="STMClientData" parentEntity="STMAbstract" syncable="YES">
         <attribute name="appVersion" optional="YES" attributeType="String" syncable="YES"/>
@@ -89,9 +100,9 @@
     </entity>
     <entity name="STMFilterSystem" parentEntity="STMAbstract" syncable="YES">
         <attribute name="brandId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="guaranteePeriod" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="guaranteePeriod" optional="YES" attributeType="Integer 64" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="serviceFrequency" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="serviceFrequency" optional="YES" attributeType="Integer 64" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="servicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
         <attribute name="smallServicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
         <relationship name="filterSystemType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMFilterSystemType" inverseName="filterSystems" inverseEntity="STMFilterSystemType" syncable="YES"/>
@@ -99,9 +110,9 @@
     </entity>
     <entity name="STMFilterSystemType" parentEntity="STMAbstract" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="guaranteePeriod" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="guaranteePeriod" optional="YES" attributeType="Integer 64" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="serviceFrequency" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="serviceFrequency" optional="YES" attributeType="Integer 64" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="servicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
         <relationship name="filterSystems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMFilterSystem" inverseName="filterSystemType" inverseEntity="STMFilterSystem" syncable="YES"/>
     </entity>
@@ -134,6 +145,17 @@
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="serviceContracts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceContract" inverseName="customerPerson" inverseEntity="STMServiceContract" syncable="YES"/>
     </entity>
+    <entity name="STMPicture" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="deviceAts" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="href" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageFormat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagePath" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="picturesInfo" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="resizedImagePath" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="thumbnailHref" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailPath" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
+    </entity>
     <entity name="STMRecordStatus" representedClassName="STMRecordStatus" parentEntity="STMAbstract" syncable="YES">
         <attribute name="isRead" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="isRemoved" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
@@ -153,7 +175,7 @@
     <entity name="STMServiceItem" parentEntity="STMAbstract" syncable="YES">
         <attribute name="additionalServiceInfo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="currentServiceContractId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="guaranteePeriod" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="guaranteePeriod" optional="YES" attributeType="Integer 64" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="installingDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="installingMasterId" optional="YES" attributeType="String" syncable="YES"/>
@@ -164,7 +186,7 @@
         <attribute name="pausedFrom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="plannedServiceDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="plannedServiceType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="serviceFrequency" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="serviceFrequency" optional="YES" attributeType="Integer 64" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="serviceInfo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="servicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
         <attribute name="smallServicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
@@ -177,11 +199,11 @@
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nextServiceInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="servicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
         <attribute name="serviceType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="servingMasterId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="servicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
         <attribute name="smallServicePrice" optional="YES" attributeType="Decimal" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="serviceItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMServiceItem" inverseName="serviceItems" inverseEntity="STMServiceItem" syncable="YES"/>
     </entity>
     <entity name="STMServicePoint" parentEntity="STMAbstract" syncable="YES">
@@ -222,6 +244,8 @@
     </entity>
     <elements>
         <element name="STMAbstract" positionX="-1341" positionY="-2106" width="128" height="105"/>
+        <element name="STMBarCodeType" positionX="-218" positionY="-2286" width="128" height="105"/>
+        <element name="STMBarCodeScan" positionX="-72" positionY="-2286" width="128" height="90"/>
         <element name="STMClientData" positionX="-936" positionY="-2286" width="128" height="270"/>
         <element name="STMClientEntity" positionX="70" positionY="-2286" width="128" height="90"/>
         <element name="STMContact" positionX="-1143" positionY="-2115" width="128" height="88"/>
