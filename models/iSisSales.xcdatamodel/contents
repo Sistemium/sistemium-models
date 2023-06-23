@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="387">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="388">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -635,6 +635,7 @@
         <relationship name="saleOrder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMSaleOrder" inverseName="shipments" inverseEntity="STMSaleOrder" syncable="YES"/>
         <relationship name="salesman" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMSalesman" inverseName="shipments" inverseEntity="STMSalesman" syncable="YES"/>
         <relationship name="shipmentEgaiss" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMShipmentEgais" inverseName="shipment" inverseEntity="STMShipmentEgais" syncable="YES"/>
+        <relationship name="shipmentRates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMShipmentRate" inverseName="shipment" inverseEntity="STMShipmentRate" syncable="YES"/>
     </entity>
     <entity name="STMShipmentEgais" parentEntity="STMAbstract" syncable="YES">
         <attribute name="egaisActCls" optional="YES" attributeType="String" syncable="YES"/>
@@ -693,6 +694,11 @@
         <attribute name="lastReadCommentaries" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="newsMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMNewsMessage" inverseName="userNewsMessages" inverseEntity="STMNewsMessage" syncable="YES"/>
+    </entity>
+    <entity name="STMShipmentRate" representedClassName="STMShipmentRate" parentEntity="STMAbstract" syncable="YES">
+        <attribute name="authId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="shipment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMShipment" inverseName="shipmentRates" inverseEntity="STMShipment" syncable="YES"/>
     </entity>
     <entity name="STMUserOutlet" parentEntity="STMAbstract" syncable="YES">
         <attribute name="outletId" optional="YES" attributeType="String" syncable="YES"/>
