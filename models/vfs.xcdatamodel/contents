@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="21G115" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="110">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="21G646" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="111">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -150,6 +150,7 @@
         <attribute name="notificationAgreement" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="serviceContracts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceContract" inverseName="customerPerson" inverseEntity="STMServiceContract" syncable="YES"/>
+        <relationship name="servicePointContacts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMServicePointContact" inverseName="person" inverseEntity="STMServicePointContact" syncable="YES"/>
     </entity>
     <entity name="STMPicture" parentEntity="STMAbstract" syncable="YES">
         <attribute name="deviceAts" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -236,6 +237,11 @@
         <relationship name="currentServiceContract" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMServiceContract" inverseName="servicePoints" inverseEntity="STMServiceContract" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMLocation" inverseName="servicePoints" inverseEntity="STMLocation" syncable="YES"/>
         <relationship name="serviceItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STMServiceItem" inverseName="servicePoint" inverseEntity="STMServiceItem" syncable="YES"/>
+        <relationship name="servicePointContacts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STMServicePointContact" inverseName="servicePoint" inverseEntity="STMServicePointContact" syncable="YES"/>
+    </entity>
+    <entity name="STMServicePointContact" parentEntity="STMAbstract" syncable="YES">
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMPerson" inverseName="servicePointContacts" inverseEntity="STMPerson" syncable="YES"/>
+        <relationship name="servicePoint" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMServicePoint" inverseName="servicePointContacts" inverseEntity="STMServicePoint" syncable="YES"/>
     </entity>
     <entity name="STMSetting" representedClassName="STMSetting" parentEntity="STMAbstract" syncable="YES">
         <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
