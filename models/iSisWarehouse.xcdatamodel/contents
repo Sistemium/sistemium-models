@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="394">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="395">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -391,6 +391,10 @@
         <attribute name="boxToId" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="warehouseItemId" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="STMPickingCheck" parentEntity="STMAbstract" syncable="YES">
+    </entity>
+    <entity name="STMPickingRequest" parentEntity="STMAbstract" syncable="YES">
     </entity>
     <entity name="STMWarehousePalette" parentEntity="STMAbstract" syncable="YES">
         <attribute name="barcode" optional="YES" attributeType="String" syncable="YES"/>
