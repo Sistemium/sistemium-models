@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="391">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="392">
     <entity name="STMAbstract" isAbstract="YES" parentEntity="STMDatum" syncable="YES">
         <attribute name="commentText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ownerXid" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -32,6 +32,7 @@
         <attribute name="repeatable" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="required" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="territory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pdfUrl" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="campaign" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMCampaign" inverseName="actions" inverseEntity="STMCampaign" syncable="YES"/>
     </entity>
     <entity name="STMArticle" representedClassName="STMArticle" parentEntity="STMAbstract" syncable="YES">
@@ -526,6 +527,8 @@
     </entity>
     <entity name="STMSalesOffer" parentEntity="STMAbstract" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="showPriceOrigin" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="actions" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="contract" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMContract" inverseName="salesOffers" inverseEntity="STMContract" syncable="YES"/>
         <relationship name="outlet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMOutlet" inverseName="salesOffers" inverseEntity="STMOutlet" syncable="YES"/>
         <relationship name="priceType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMPriceType" inverseName="salesOffers" inverseEntity="STMPriceType" syncable="YES"/>
